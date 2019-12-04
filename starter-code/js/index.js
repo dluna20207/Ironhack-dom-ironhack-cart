@@ -3,6 +3,11 @@ var $calc = document.getElementById('calc');
 
 function updateSubtot($product) {
   // Iteration 1.1
+  let unitPrice = $product.getElementsByClassName("pu");
+  console.log(unitPrice);
+  let subTotal = unitPrice * $product.getElementsByClassName("qty");
+
+  $product.getElementsByClassName("subtot") = subTotal;
 }
 
 function calcAll() {
