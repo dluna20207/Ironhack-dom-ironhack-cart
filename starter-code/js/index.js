@@ -29,3 +29,40 @@ function calcAll() {
   updateSubtot();
 }
 $calc.onclick = calcAll;
+
+let deleteProductList = $cart.getElementsByClassName("btn btn-delete");
+
+for (let i = 0; i < deleteProductList.length; i++) {
+  let deleteList = deleteProductList[i];
+  deleteList.addEventListener('click', function (element) {
+    let buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    calcAll()
+  });
+}
+
+let selectName = document.getElementsByClassName("new")[0];
+
+$cart.getElementById("create").addEventListener("click", $cart.appendChild(`<tr class="product">
+        <td class="name">
+          <span>${selectName}</span>
+        </td>
+    
+        <td class="pu">
+          $<span>${selectPU}</span>
+        </td>
+    
+        <td class="qty">
+          <label>
+            <input type="number" value="0" min="0">
+          </label>
+        </td>
+    
+        <td class="subtot">
+          $<span>0</span>
+        </td>
+    
+        <td class="rm">
+          <button class="btn btn-delete">Delete</button>
+        </td>
+      </tr>`));
